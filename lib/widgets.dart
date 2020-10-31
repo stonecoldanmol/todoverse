@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TaskCardWidget extends StatelessWidget {
+  final String title;
+  final String desc;
+  const TaskCardWidget({this.title,this.desc});
 
-  @override
+
+
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -19,7 +23,7 @@ class TaskCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Get Started',
+            title??'(Unnamed Task)',
             style: TextStyle(
               color: Color(0xFF211551),
               fontSize: 22.0,
@@ -30,7 +34,7 @@ class TaskCardWidget extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 10.0),
             child: Text(
-              'Hello User!Welcome to ToDoVerse',
+              desc??'No description added',
               style: TextStyle(
                 fontSize: 16.0,
                 color: Color(0xFF86829D),

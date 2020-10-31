@@ -19,21 +19,45 @@ class _HomepageState extends State<Homepage> {
             vertical: 32.0,
           ),
           color: Color(0xFFF6F6F6),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:[
-              Container(
-                margin: EdgeInsets.only(
-                  bottom: 32.0
-                ),
-                child: Image(
-                    image: AssetImage(
-                      'assets/images/logo.png'
+          child: Stack(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:[
+                  Container(
+                    margin: EdgeInsets.only(
+                      bottom: 32.0
                     ),
+                    child: Image(
+                        image: AssetImage(
+                          'assets/images/logo.png'
+                        ),
+                    ),
+                  ),
+                  TaskCardWidget(
+                    title: 'Get Started',
+                    desc: 'Welcome to ToDoVerse',
+                  ),
+                  TaskCardWidget(),
+                ],
+              ),
+              Positioned(
+                bottom: 0.0,
+                right: 0.0,
+                child: Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF7349FE),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Image(
+                      image: AssetImage(
+                        'assets/images/add_icon.png',
+                      )
+                  ),
                 ),
               ),
-              TaskCardWidget(),
-              TaskCardWidget(),
             ],
           ),
         ),
