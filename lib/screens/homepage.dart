@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoverse/screens/taskpage.dart';
 import 'package:todoverse/widgets.dart';
 
 
@@ -51,17 +52,22 @@ class _HomepageState extends State<Homepage> {
               Positioned(
                 bottom: 24.0,
                 right: 0.0,
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF7349FE),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Image(
-                      image: AssetImage(
-                        'assets/images/add_icon.png',
-                      )
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage()),);
+                  },
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF7349FE),
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Image(
+                        image: AssetImage(
+                          'assets/images/add_icon.png',
+                        )
+                    ),
                   ),
                 ),
               ),
