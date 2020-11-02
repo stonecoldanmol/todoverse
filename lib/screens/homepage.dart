@@ -16,7 +16,6 @@ class _HomepageState extends State<Homepage> {
           width: double.infinity,
           padding: EdgeInsets.symmetric(
             horizontal: 24.0,
-            vertical: 32.0,
           ),
           color: Color(0xFFF6F6F6),
           child: Stack(
@@ -26,6 +25,7 @@ class _HomepageState extends State<Homepage> {
                 children:[
                   Container(
                     margin: EdgeInsets.only(
+                      top: 32.0,
                       bottom: 32.0
                     ),
                     child: Image(
@@ -34,15 +34,22 @@ class _HomepageState extends State<Homepage> {
                         ),
                     ),
                   ),
-                  TaskCardWidget(
-                    title: 'Get Started',
-                    desc: 'Welcome to ToDoVerse',
-                  ),
-                  TaskCardWidget(),
+                  Expanded(
+                    child: ListView(
+                      children: <Widget>[
+                        TaskCardWidget(
+                          title: 'Get Started',
+                          desc: 'Welcome to ToDoVerse',
+                        ),
+                        TaskCardWidget(),
+
+                      ],
+                    ),
+                  )
                 ],
               ),
               Positioned(
-                bottom: 0.0,
+                bottom: 24.0,
                 right: 0.0,
                 child: Container(
                   width: 60,
