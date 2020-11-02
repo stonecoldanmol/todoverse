@@ -19,13 +19,19 @@ class _TaskPageState extends State<TaskPage>
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24.0),
+                    padding: EdgeInsets.only(top: 24.0,bottom: 6.0),
                     child: Row(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(24.0),
-                          child: Image(
-                              image:AssetImage('assets/images/back_arrow_icon.png'),
+                        InkWell(
+                          onTap: ()
+                          {
+                            Navigator.pop(context);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(24.0),
+                            child: Image(
+                                image:AssetImage('assets/images/back_arrow_icon.png'),
+                            ),
                           ),
                         ),
                         Expanded(
@@ -43,7 +49,17 @@ class _TaskPageState extends State<TaskPage>
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter task description...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 24.0,
+
+                      )
+                    ),
+                  ),
                 ],
               )
         ),
