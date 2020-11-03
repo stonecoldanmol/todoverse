@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:todoverse/widgets.dart';
 
 
 class TaskPage extends StatefulWidget
@@ -17,6 +18,7 @@ class _TaskPageState extends State<TaskPage>
       body: SafeArea(
         child: Container(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(top: 24.0,bottom: 6.0),
@@ -60,6 +62,7 @@ class _TaskPageState extends State<TaskPage>
                       )
                     ),
                   ),
+                  TodoWidget(),
                 ],
               )
         ),
