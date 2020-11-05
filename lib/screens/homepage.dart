@@ -36,15 +36,18 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Expanded(
-                    child: ListView(
-                      children: <Widget>[
-                        TaskCardWidget(
-                          title: 'Get Started',
-                          desc: 'Welcome to ToDoVerse',
-                        ),
-                        TaskCardWidget(),
+                    child: ScrollConfiguration(
+                      behavior: NoGlowBehaviour(),
+                      child: ListView(
+                        children: <Widget>[
+                          TaskCardWidget(
+                            title: 'Get Started',
+                            desc: 'Welcome to ToDoVerse',
+                          ),
+                          TaskCardWidget(),
 
-                      ],
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -60,7 +63,11 @@ class _HomepageState extends State<Homepage> {
                     width: 60,
                     height: 60,
                     decoration: BoxDecoration(
-                      color: Color(0xFF7349FE),
+                      gradient: LinearGradient(
+                          colors: [Color(0xFF7349FE),Color(0xFF643FDE)],
+                        begin: Alignment(0.0,-1.0),
+                        end:Alignment(0.0,1.0),
+                      ),
                       borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Image(
