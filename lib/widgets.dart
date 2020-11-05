@@ -6,7 +6,6 @@ class TaskCardWidget extends StatelessWidget {
 
   const TaskCardWidget({this.title, this.desc});
 
-
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -28,7 +27,6 @@ class TaskCardWidget extends StatelessWidget {
               color: Color(0xFF211551),
               fontSize: 22.0,
               fontWeight: FontWeight.bold,
-
             ),
           ),
           Padding(
@@ -61,15 +59,25 @@ class TodoWidget extends StatelessWidget {
           Container(
             width: 20.0,
             height: 20.0,
+            margin: EdgeInsets.only(
+              right: 12.0,
+            ),
             decoration: BoxDecoration(
               color: Color(0xFF7349FE),
               borderRadius: BorderRadius.circular(6),
             ),
             child: Image(
-                image:AssetImage('assets/images/check_icon.png'),
+              image: AssetImage('assets/images/check_icon.png'),
             ),
           ),
-          Text('Todo Widget'),
+          Text(
+            'Todo Widget',
+            style: TextStyle(
+              color: Color(0xFF211551),
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
