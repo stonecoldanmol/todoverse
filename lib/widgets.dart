@@ -47,6 +47,13 @@ class TaskCardWidget extends StatelessWidget {
 }
 
 class TodoWidget extends StatelessWidget {
+
+  final String text;
+  final bool isDone;
+
+  TodoWidget({this.text, @required this.isDone});
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,15 +70,19 @@ class TodoWidget extends StatelessWidget {
               right: 12.0,
             ),
             decoration: BoxDecoration(
-              color: Color(0xFF7349FE),
+              color: isDone?Color(0xFF7349FE):Colors.transparent,
               borderRadius: BorderRadius.circular(6),
+              border: isDone?null:Border.all(
+                color: Color(0xFF868290),
+                width: 1.5,
+              )
             ),
             child: Image(
               image: AssetImage('assets/images/check_icon.png'),
             ),
           ),
           Text(
-            'Todo Widget',
+            text??'(Unnamed Todo)',
             style: TextStyle(
               color: Color(0xFF211551),
               fontSize: 16.0,
