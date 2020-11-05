@@ -17,58 +17,84 @@ class _TaskPageState extends State<TaskPage>
     return Scaffold(
       body: SafeArea(
         child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Stack(
                 children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 24.0,bottom: 6.0),
-                    child: Row(
-                      children: <Widget>[
-                        InkWell(
-                          onTap: ()
-                          {
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(24.0),
-                            child: Image(
-                                image:AssetImage('assets/images/back_arrow_icon.png'),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 24.0,bottom: 6.0),
+                        child: Row(
+                          children: <Widget>[
+                            InkWell(
+                              onTap: ()
+                              {
+                                Navigator.pop(context);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(24.0),
+                                child: Image(
+                                    image:AssetImage('assets/images/back_arrow_icon.png'),
+                                ),
+                              ),
                             ),
-                          ),
+                            Expanded(
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Enter task title',
+                                  border: InputBorder.none,
+                                ),
+                                style: TextStyle(
+                                  fontSize: 26.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF211551),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter task title',
-                              border: InputBorder.none,
-                            ),
-                            style: TextStyle(
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF211551),
-                            ),
-                          ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          bottom: 12.0,
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 12.0,
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter task description...',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: 24.0,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter task description...',
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 24.0,
 
-                        )
+                            )
+                          ),
+                        ),
+                      ),
+                      TodoWidget(
+                        isDone: false,
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    bottom: 24.0,
+                    right: 24.0,
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage()),);
+                      },
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFE3577),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: Image(
+                            image: AssetImage(
+                              'assets/images/delete_icon.png',
+                            )
+                        ),
                       ),
                     ),
-                  ),
-                  TodoWidget(
-                    isDone: false,
                   ),
                 ],
               )
