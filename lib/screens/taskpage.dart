@@ -72,6 +72,9 @@ class _TaskPageState extends State<TaskPage>
                       TodoWidget(
                         isDone: false,
                       ),
+                      TodoWidget(
+                        isDone: true,
+                      ),
                     ],
                   ),
                   Positioned(

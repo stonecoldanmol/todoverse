@@ -45,7 +45,6 @@ class _HomepageState extends State<Homepage> {
                             desc: 'Welcome to ToDoVerse',
                           ),
                           TaskCardWidget(),
-
                         ],
                       ),
                     ),
