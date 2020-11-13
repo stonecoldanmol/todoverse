@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:todoverse/database_helper.dart';
+import 'package:todoverse/models/task.dart';
 import 'package:todoverse/widgets.dart';
 
 
@@ -40,8 +42,23 @@ class _TaskPageState extends State<TaskPage>
                             ),
                             Expanded(
                               child: TextField(
-                                onSubmitted: (value){
-                                  print('Field value: $value');
+                                onSubmitted: (value) async{
+                                 // print('Field value: $value');
+
+
+                                  if(value!="")
+                                  {
+                                    DatabaseHelper _dbHelper=DatabaseHelper();
+
+                                    Task _newTask=Task(
+                                      title: value,
+
+                                    );
+
+                                   await _dbHelper.insertTask(_newTask);
+                                   
+                                   print('New task has been created');
+                                  }
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Enter task title',
