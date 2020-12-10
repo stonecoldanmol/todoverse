@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:todoverse/database_helper.dart';
 import 'package:todoverse/screens/taskpage.dart';
 import 'package:todoverse/widgets.dart';
 
@@ -8,7 +10,11 @@ class Homepage extends StatefulWidget {
   _HomepageState createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _HomepageState extends State<Homepage>
+{
+
+  DatabaseHelper _dbHelper=DatabaseHelper();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,17 +42,22 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                   Expanded(
-                    child: ScrollConfiguration(
-                      behavior: NoGlowBehaviour(),
-                      child: ListView(
-                        children: <Widget>[
-                          TaskCardWidget(
-                            title: 'Get Started',
-                            desc: 'Welcome to ToDoVerse',
+                    child: FutureBuilder(
+                      initialData: [],
+                      future: _dbHelper.getTasks(),
+                      builder: (context,snapshot){
+                        return ScrollConfiguration(
+                          behavior: NoGlowBehaviour(),
+                          child: ListView.builder(
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context,index){
+                              return TaskCardWidget(
+                                title: snapshot.data[index].title,
+                              );
+                            },
                           ),
-                          TaskCardWidget(),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                   )
                 ],

@@ -52,12 +52,11 @@ class _TaskPageState extends State<TaskPage>
 
                                     Task _newTask=Task(
                                       title: value,
-
                                     );
 
                                    await _dbHelper.insertTask(_newTask);
                                    
-                                   print('New task has been created');
+                                  // print('New task has been created');
                                   }
                                 },
                                 decoration: InputDecoration(
