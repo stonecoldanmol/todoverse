@@ -67,8 +67,14 @@ class _HomepageState extends State<Homepage>
                 right: 0.0,
                 child: GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage()),);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage()),
+                    ).then((value) {
+                      setState(() {
+
+                      });
+                    });
                   },
+
                   child: Container(
                     width: 60,
                     height: 60,
