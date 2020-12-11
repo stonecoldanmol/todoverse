@@ -8,8 +8,8 @@ import 'package:todoverse/widgets.dart';
 class TaskPage extends StatefulWidget
 {
 
-  final int id;
-  TaskPage({@required this.id});
+  final Task task;
+  TaskPage({@required this.task});
 
   @override
   _TaskPageState createState() => _TaskPageState();
@@ -20,7 +20,7 @@ class _TaskPageState extends State<TaskPage>
 
   @override
   void initState() {
-    print("ID:${widget.id}");
+    //print("ID:${widget.task.id}");
     super.initState();
   }
   @override
@@ -55,19 +55,28 @@ class _TaskPageState extends State<TaskPage>
                                 onSubmitted: (value) async{
                                  // print('Field value: $value');
 
-
-                                  if(value!="")
+                                //check field is not empty
+                                  if(value!="" )
                                   {
-                                    DatabaseHelper _dbHelper=DatabaseHelper();
+                                    //check if the task is null
+                                    if(widget.task==null)
+                                    {
+                                      DatabaseHelper _dbHelper=DatabaseHelper();
 
-                                    Task _newTask=Task(
-                                      title: value,
-                                    );
+                                      Task _newTask=Task(
+                                        title: value,
+                                      );
 
-                                   await _dbHelper.insertTask(_newTask);
-                                   
-                                  // print('New task has been created');
-                                  }
+                                      await _dbHelper.insertTask(_newTask);
+
+                                      // print('New task has been created');
+                                    }else{
+                                      print('Update the existing task');
+                                    }
+                                    }
+
+
+
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Enter task title',

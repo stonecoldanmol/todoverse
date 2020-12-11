@@ -54,7 +54,7 @@ class _HomepageState extends State<Homepage>
                               return GestureDetector(
                                 onTap: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage(
-                                    id:snapshot.data[index].id,
+                                    task:snapshot.data[index],
                                     )));
                                 },
                                 child: TaskCardWidget(
@@ -74,7 +74,7 @@ class _HomepageState extends State<Homepage>
                 right: 0.0,
                 child: GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage(id: 0,)),
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>TaskPage(task: null,)),
                     ).then((value) {
                       setState(() {
 
