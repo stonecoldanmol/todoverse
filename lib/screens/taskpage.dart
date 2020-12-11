@@ -7,12 +7,18 @@ import 'package:todoverse/widgets.dart';
 
 class TaskPage extends StatefulWidget
 {
+
+  final int id;
+  TaskPage({@required this.id});
+
   @override
   _TaskPageState createState() => _TaskPageState();
 }
 
 class _TaskPageState extends State<TaskPage>
 {
+
+
   @override
   Widget build(BuildContext context)
   {
