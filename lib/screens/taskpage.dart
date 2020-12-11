@@ -18,7 +18,11 @@ class TaskPage extends StatefulWidget
 class _TaskPageState extends State<TaskPage>
 {
 
-
+  @override
+  void initState() {
+    print("ID:${widget.id}");
+    super.initState();
+  }
   @override
   Widget build(BuildContext context)
   {
